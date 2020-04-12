@@ -1,0 +1,22 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+#cometa{
+    overflow: scroll; /* haciendo scroll a la pagina web*/
+}
+
+#imagen-principal{
+    width: 80px;
+    height: 40px;
+    margin-right: 20px;
+    vertical-align: baseline; /* Para alinear la imagen al mismo level que el texto*/
+}
+
+/* SI son varios elementos separalos con coma*/
+@media screen and (max-width:800px){
+    #hora{display: none;}
+}
+@media screen and (max-width){
+    #sidebar,menu{display: none;}
+}

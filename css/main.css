@@ -1,0 +1,26 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#imagen-principal{
+    width: 80px;
+    height: 40px;
+    margin-right: 20px;
+    vertical-align: baseline; /* Para alinear la imagen al mismo level que el texto*/
+}
+
+#hora{
+    border-radius: 1em;
+}
+/* SI son varios elementos separalos con coma*/
+@media screen and (max-width:800px){
+    #hora{display: none;}
+}
+.grid{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: blueviolet;
+}

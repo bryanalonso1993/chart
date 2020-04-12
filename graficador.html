@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- LOAD BOOTSTRAP FRAMEWORK-->
+    <link rel="stylesheet" href="../librerias/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/test.css">
+    <link rel="stylesheet" href="./css/graphics.css">
+    <!-- LOAD JQUERY FRAMEWORK-->
+    <script type="text/javascript" src="../librerias/jquery-3.4.1.min.js"></script>
+    <!-- LOAD CHARTJS -->
+    <script type="text/javascript" src="../librerias/Chart.min.js"></script>
+    <title>Extrayendo datos javascript</title>
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="./img/logo-claro.png" width="80px" height="50px" class="d-inline-block align-top" alt="">
+            <span style="margin-left: 2em;">Practicando Javascript</span>
+        </a>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <form class="form-group">
+                    <div style="margin:1em;">
+                        <label for="species">SPECIES</label>
+                        <input class="form-control" type="text" placeholder="INSERT SPECIE" id="species" name="species">
+                    </div>
+                    <div style="margin:1em;">
+                        <label for="anio">YEAR</label>
+                        <input class="form-control" type="text" placeholder="INSERT YEAR 1720-1800" id="anio" name="anio">
+                    </div>
+                    <div>
+                        <button type="button" id="call-data" class="btn btn-info">GO</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="row">
+                    <canvas id="myChart1" width="400px" height="100px">
+                        <!-- ACA VAMOS A LLAMAR LOS DATOS -->
+                    </canvas>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvas id="myChart2">
+                            <!-- ACA VAMOS A LLAMAR LOS DATOS -->
+                        </canvas>
+                    </div>
+                    <div class="col-md-6">
+                            <!-- ACA VAMOS A LLAMAR OTROS DATOS PEEEE-->
+                        <canvas id="myChart3">
+
+                        </canvas>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/graficas.js"></script>
+    <script type="text/javascript" src="./js/retoques.js"></script>
+</body>
+</html>

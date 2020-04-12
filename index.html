@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OyM Soporte a Clientes</title>
+    <link rel="stylesheet" href="../librerias/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="../librerias/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../librerias/Chart.min.js"></script>
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="./img/logo-claro.png" id="imagen-principal" class="d-inline-block" alt="logo-de-claro">
+          <span id="nombre-principal">OyM Soporte a Clientes</span>  
+        </a>
+    </nav>
+    <br>
+    <div class="container">
+        <!-- Estitlos de bootstrap al div-->
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12">
+                <h3>Registro de personas en el sistema de identidad</h3>
+                <hr>
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label for="breeder">BREEDER</label>
+                            <input type="text" class="form-control" name="breeder" placeholder="breeder" id="breeder">
+                        </div>
+                        <button type="button" class="btn btn-info" id="btnSendData">REGISTRAR</button>
+                    </form>
+                </div>
+            </div>
+            <div id="hora" class="col-md-2" style="border-radius: 2em;background-color: bisque;">
+                <!-- set hour -->
+            </div>
+            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12" style="display:block;">
+                  <!-- inserta la tabla php-->  
+                  <table class="table">
+                    <thead class='table table-striped' id="thead-table">
+                        <tr>
+                            <th scope='col'>pos</th>
+                            <th scope='col'>breeder</th>                    
+                            <th scope='col'>pigeon</th>
+                            <th scope='col'>name</th>
+                            <th scope='col'>color</th>
+                            <th scope='col'>sex</th>
+                            <th scope='col'>arrival</th>
+                            <th scope='col'>speed</th>
+                            <th scope='col'>towin</th>
+                            <th scope='col'>elegible</th>
+                        </tr>
+                    </thead>
+                    <tbody id="insert_table_php">
+                        <!-- insert requests table-->
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="myChart" style="width: 400px;height: 400px">
+
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+</body>
+</html>
