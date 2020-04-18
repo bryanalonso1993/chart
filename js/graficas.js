@@ -1,6 +1,6 @@
 // define variables
 const callDataBackend = document.getElementById('call-data');
-
+const bodyCanvasData = document.querySelector('.head-canvas');
 //getDataBackend
 function ResponseDataServer(url){
     this.url = url;
@@ -17,10 +17,14 @@ ResponseDataServer.prototype = {
                 pushDataSepallength.push(element.sepallength);
                 pushDataspecies.push(element.species);
             });
-            let ctx = document.getElementById('myChart2').getContext('2d');
+            // create new Canvas set attributes id and class
+            let canvas1 = document.createElement('canvas');
+            canvas1.setAttribute('id','myChart1');
+            canvas1.classList.add('tmpCanvas');
+            bodyCanvasData.children[0].appendChild(canvas1);
+            let ctx = document.getElementById('myChart1').getContext('2d');
             let objectChart = new PlottingStadistics(pushDataspecies,"Estadisticas",pushDataSepallength,"#9999ff");
-            objectChart.addChart(ctx,'bar');
-
+            objectChart.addChart(ctx,'line');
         }).catch( er => {
             console.log(er);
         });      
@@ -35,7 +39,11 @@ ResponseDataServer.prototype = {
                 pushDataYear.push(element.year);
                 pushDataSpecies.push(element.situados_paid);
             });
-            let ctx = document.getElementById('myChart1').getContext('2d');
+            let canvas2 = document.createElement('canvas');
+            canvas2.setAttribute('id','myChart2');
+            canvas2.classList.add('tmpCanvas');
+            bodyCanvasData.children[1].children[0].appendChild(canvas2);
+            let ctx = document.getElementById('myChart2').getContext('2d');
             let objectChart2 = new PlottingStadistics(pushDataYear, "Estadisticas Especiales",pushDataSpecies,"#ecc6d9");
             objectChart2.addChart(ctx, 'line');
         }).catch( er => {
@@ -67,6 +75,10 @@ ResponseDataServer.prototype = {
                     backgroundColor: colours[index]
                 });
             }
+            let canvas3 = document.createElement('canvas');
+            canvas3.setAttribute('id','myChart3');
+            canvas3.classList.add('tmpCanvas');
+            bodyCanvasData.children[1].children[1].appendChild(canvas3);
             let ctx = document.getElementById('myChart3').getContext('2d');
             let objectChart3 = new PlottingStadistics(pushDataLabels,labels,"",colours);
             objectChart3.addCharts(ctx,'line',listResult);
@@ -78,6 +90,18 @@ ResponseDataServer.prototype = {
 
     }
 };
+
+function clearCanvas(){
+    const removeCanvas = document.getElementsByClassName('tmpCanvas');
+    if (removeCanvas) {
+        const numCanvas = removeCanvas.length;
+        for (let index = 0; index < numCanvas; index++) {
+            removeCanvas[0].remove();
+        }
+    }else{
+        console.log("Not found delete canvas...");
+    }
+}
 
 function PlottingStadistics(labels,labelTitle, data, colour){
     this.labels = labels;
@@ -102,7 +126,7 @@ PlottingStadistics.prototype = {
             options: {
                 scales: {yAxes: [{ticks: {beginAtZero: true}}]}
             }
-        });
+        }).update();
     },
     addCharts: function (ctx, typeChart, dataJson) {
         return new Chart(ctx,{
@@ -114,7 +138,7 @@ PlottingStadistics.prototype = {
             options: {
                 scales: {yAxes: [{ticks: {beginAtZero: true}}]}
             }
-        });
+        }).update();
     }
 };
 
@@ -123,6 +147,7 @@ PlottingStadistics.prototype = {
 function callDataChart(e) {  
     e.preventDefault();
     // Call Data Plot Iris
+    clearCanvas();
     const specie = document.getElementById('species').value;
     const responseData = new ResponseDataServer("http://localhost/proyecto_angular/backend/iris.php?species="+specie);
     responseData.getDataServerIris();
